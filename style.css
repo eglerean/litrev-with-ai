@@ -26,7 +26,9 @@
 .slidev-layout .small li,
 .slidev-layout .small p,
 .slidev-layout .smaller li,
-.slidev-layout .smaller p { font-size: inherit; }
+.slidev-layout .smaller p,
+.slidev-layout .small ul,
+.slidev-layout .smaller ul { font-size: inherit; }
 
 /* References: under the title, or pinned above the 2.75rem footer.
    !important: the theme sets position: relative on all slide content (layouts.css:352) */
@@ -60,3 +62,9 @@
 
 /* Dark cards: light Aalto blue keeps links readable on black */
 .slidev-layout .card.dark a { color: var(--aalto-blue); }
+
+/* "NEW" pill on variant slides being compared with the slide before them; remove with the variant-tag divs once decided */
+.slidev-layout .variant-tag { position: absolute !important; top: 1.1rem; right: 1.5rem; padding: 0.1rem 0.6rem; border-radius: 999px; background: var(--aalto-yellow); color: #000; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.08em; }
+/* A table inside a small or smaller block follows it too (the table rule above sets its own size) */
+.slidev-layout .small table,
+.slidev-layout .smaller table { font-size: inherit; }
