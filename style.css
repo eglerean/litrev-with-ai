@@ -1,0 +1,62 @@
+/*
+ * Deck-wide classes for slides.md. Slidev loads this file for every slide.
+ * Type sizes and spacing come from the theme (slidev-theme-aalto-scicomp/styles/layouts.css);
+ * slides should not set their own font sizes or text margins. The only smaller size is for references.
+ * No `>` child selectors: they break per-slide <style> blocks in Slidev 0.47, so they are avoided here too.
+ */
+
+/* Normal text: one size and line height for paragraphs, list items and table cells.
+   Overrides the theme's p 1.6 / ul 1.65 / table 0.95rem and Slidev's base li 1.8em line-height and 1.1em left indent.
+   Headings, references, and the cover and end layouts keep their own sizes. */
+.slidev-layout { font-size: 1.02rem; line-height: 1.25; }
+.slidev-layout p,
+.slidev-layout ul,
+.slidev-layout ol,
+.slidev-layout li,
+.slidev-layout table { font-size: 1.02rem; line-height: 1.25; }
+.slidev-layout li { margin: 0.2rem 0; }
+/* On content slides a paragraph right under the title is normal text, not the theme's larger grey subtitle */
+.slidev-layout.default h1 + p { font-size: 1.02rem; line-height: 1.25; color: inherit; }
+
+/* Small text for secondary details (same size as the slide 4 grid cells); line height stays as normal text */
+.slidev-layout .small { font-size: 0.7rem; }
+/* Even smaller, for side examples that only need to be glanced at */
+.slidev-layout .smaller { font-size: 0.5rem; }
+/* A small or smaller list or block: its items follow it instead of the normal-text size */
+.slidev-layout .small li,
+.slidev-layout .small p,
+.slidev-layout .smaller li,
+.slidev-layout .smaller p { font-size: inherit; }
+
+/* References: under the title, or pinned above the 2.75rem footer.
+   !important: the theme sets position: relative on all slide content (layouts.css:352) */
+.slidev-layout .ref-line { font-size: 0.7rem; opacity: 0.75; margin: -0.6rem 0 1rem; }
+.slidev-layout .ref-bottom { position: absolute !important; left: 3.5rem; right: 3.5rem; bottom: 3rem; font-size: 0.7rem; opacity: 0.75; }
+
+/* Small "where are we" icon in the top right corner (e.g. the AI pyramid level).
+   A div, not a bare <img>, so Markdown does not wrap it in a <p> */
+.slidev-layout .corner-icon { position: absolute !important; top: 1.25rem; right: 1.75rem; width: 100px; }
+.slidev-layout .corner-icon img { display: block; width: 100%; height: auto; border-radius: 0; }
+/* Keep the title and the reference line clear of the icon */
+.slidev-layout:has(.corner-icon) h1,
+.slidev-layout:has(.corner-icon) .ref-line { padding-right: calc(100px + 0.5rem); }
+
+/* Card grids and stacks, all with the theme's 1rem card gap */
+.slidev-layout .grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin-bottom: 1rem; }
+.slidev-layout .grid-4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; margin-bottom: 1rem; }
+.slidev-layout .grid-2-3 { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: 1rem; margin-bottom: 1rem; }
+.slidev-layout .stack { display: grid; gap: 1rem; align-content: start; }
+
+/* No trailing space at the bottom of a card */
+.slidev-layout .card p:last-child,
+.slidev-layout .card ul:last-child { margin-bottom: 0; }
+
+/* Coloured cards (Aalto blue, yellow, red) with black text and black bullets, since the default bullet is blue */
+.slidev-layout .card.blue { background: var(--aalto-blue); border-color: var(--aalto-blue); color: #000; }
+.slidev-layout .card.yellow { background: var(--aalto-yellow); border-color: var(--aalto-yellow); color: #000; }
+.slidev-layout .card.red { background: var(--aalto-red); border-color: var(--aalto-red); color: #000; }
+.slidev-layout .card.blue h3, .slidev-layout .card.yellow h3, .slidev-layout .card.red h3 { color: #000; }
+.slidev-layout .card.blue li::before, .slidev-layout .card.yellow li::before, .slidev-layout .card.red li::before { background: #000; }
+
+/* Dark cards: light Aalto blue keeps links readable on black */
+.slidev-layout .card.dark a { color: var(--aalto-blue); }
