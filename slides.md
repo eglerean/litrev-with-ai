@@ -532,7 +532,7 @@ layout: default
 
 ### Running the search
 
-In three evaluations, generative AI missed **68–96% (median 91%)** of the studies found by conventional searches (<a href="https://doi.org/10.1017/rsm.2025.16">Clark et al. 2025</a>). In general, some publishers/companies might block ChatGPT/Claude/Gemini search requests, making some part of the internet invisible to AI tools.
+In three evaluations, generative AI missed **68–96% (median 91%)** of the studies found by conventional searches (<a href="https://doi.org/10.1017/rsm.2025.16">Clark et al. 2025</a>). <a href="https://arxiv.org/abs/2611.05459">Al Kalbani et al. 2026</a> tested against a 102-article benchmark, each of five AI tools found **fewer than half** of the articles (best: 42/102, with university library access ~80/102). In general, some publishers/companies might block AI tools search requests, making part of the Internet invisible to AI tools.
 
 ### Being the only screener
 
